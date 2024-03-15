@@ -31,6 +31,7 @@ while True:
             pygame.quit()
             sys.exit()
 
+
     now = datetime.now()
     minute = now.minute
     second = now.second
@@ -39,7 +40,7 @@ while True:
     angle_minute = -((minute / 60) * 360)
     angle_second = -((second / 60) * 360)
 
-    # Rotate images around their center
+
     rotated_minute_hand = pygame.transform.rotate(hand_minute, angle_minute)
     rotated_second_hand = pygame.transform.rotate(hand_second, angle_second)
 
@@ -48,7 +49,7 @@ while True:
     second_rect = rotated_second_hand.get_rect(center=clock_center)
 
 
-    screen.blit(background, (0,0))
+    screen.blit(background, (0, 0))
     screen.blit(rotated_minute_hand, minute_rect.topleft)
     screen.blit(rotated_second_hand, second_rect.topleft)
 
