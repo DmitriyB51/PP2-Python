@@ -1,7 +1,7 @@
 import re
 
 # ex 1
-# text = str(input())
+# text = str(input()) # a and 0 or more b
 def match(text):
     pattern = 'ab*'
     if re.match(pattern, text):
@@ -12,7 +12,7 @@ def match(text):
 
 
 # ex 2
-# text = str(input())
+# text = str(input()) # followed by 2 or 3 b's
 def match1(text):
     pattern = 'ab{2,3}'
     if re.match(pattern, text):
@@ -23,7 +23,7 @@ def match1(text):
 
 # ex 3
 # text = str(input())
-def seq(text):
+def seq(text): # cnt sequences lower cases + undersore + lower case
     pattern = '[a-z]+_[a-z]+'
     a = re.findall(pattern, text)
     return a
@@ -39,7 +39,7 @@ def seq1(text):
 # seq1(text)
 
 # ex 5
-# text = str(input())
+# text = str(input()) # find sequence with a...something...b
 def match2(text):
     pattern = 'a.*b$'
     a = re.search(pattern,text)
@@ -50,7 +50,7 @@ def match2(text):
 # match2(text)
 
 # ex 6
-# text = str(input())
+# text = str(input()) # replace all ., by :
 def replace(text):
     pattern = '[ ,.]'
     a = re.sub(pattern,":" , text)
@@ -59,7 +59,7 @@ def replace(text):
 
 # ex 7
 # text = str(input())
-def snake_to_camel(text):
+def snake_to_camel(text):   # from snake to camel
 
     words = text.split('_')
 
@@ -83,11 +83,11 @@ def space(text):
 # space(text)
 
 # ex 10
-text = str(input())
+# text = str(input())
 def camel(text):
     a = re.sub(r'(?<!^)(?=[A-Z])', '_', text).lower()
     print(a)
-camel(text)
+# camel(text)
 
 
 

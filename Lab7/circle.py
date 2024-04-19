@@ -1,31 +1,34 @@
 import pygame
-
 pygame.init()
-w = 800
-h = 400
-sc = pygame.display.set_mode((w, h))
-pygame.display.set_caption("Circle")
-run = True
-x = w//2
-y = h//2
-r = 25
-v = 20
+
+pl = True
+sc = pygame.display.set_mode((1500, 760))
+x = 750
+y = 380
 clock = pygame.time.Clock()
-while run:
-    clock.tick(100)
-    sc.fill((255,255,255))
-    circle = pygame.draw.circle(sc,(255, 0, 0), (x,y), r)
-    pygame.display.update()
+
+while pl:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            run = False
-            pygame.quit()
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT and x > r:
-                x-=v
-            if event.key == pygame.K_RIGHT and x < w-r:
-                x+=v
-            if event.key == pygame.K_UP and y > r:
-                y-=v
-            if event.key == pygame.K_DOWN and y < h-r:
-                y+=v
+            pl = False
+    pr = pygame.key.get_pressed()
+    if pr[pygame.K_UP]:
+        if y >= 27:
+            y -= 2
+    if pr[pygame.K_DOWN]:
+        if y <= 733:
+            y += 2
+    if pr[pygame.K_LEFT]:
+        if x >= 27:
+            x -= 2
+    if pr[pygame.K_RIGHT]:
+        if x<=1473:
+            x += 2
+    sc.fill((0, 0, 0))
+    pygame.draw.circle(sc, (255, 0, 0), (x, y), 25 )
+
+    clock.tick(300)
+    pygame.display.flip()
+
+
+

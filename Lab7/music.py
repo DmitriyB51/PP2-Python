@@ -1,35 +1,38 @@
-import pygame
 from pygame import mixer
+import pygame as pg
 mixer.init()
-
-songs = ["C:/Users/OmeN_HP/Downloads/Drake_-_Best_I_Ever_Had_48270083.mp3", "C:/Users/OmeN_HP/Downloads/Rihanna_Drake_-_Work_48112888.mp3", "C:/Users/OmeN_HP/Downloads/Drake_-_Gods_Plan_53025361.mp3"]
+pg.init()
+screen = pg.display.set_mode((1500, 760))
+songs = ["C:/Users/OmeN_HP/Downloads/Drake_-_Best_I_Ever_Had_48270083.mp3", "C:/Users/OmeN_HP/Downloads/Drake_-_Gods_Plan_53025361.mp3"]
 
 playing = True
 i = 0
-pygame.mixer.music.load(songs[0])
+
+pg.mixer.music.load(songs[0])
 print(f"Press  'p' to play, 's' to pause\nPress 'n' to next song\nPress 'pr' to previous song\n PRESS 'c' TO CLOSE")
 while playing:
-
+    for event in pg.event.get():
+        if event.type == pg.QUIT:
+            playing = False
 
     s = str(input())
 
-    pygame.mixer.music.play()
+    pg.mixer.music.play()
     if s == 'p':
 
-        pygame.mixer.music.unpause()
+        pg.mixer.music.unpause()
 
     elif s == 's':
-        pygame.mixer.music.pause()
+        pg.mixer.music.pause()
     elif s == 'n':
         i +=1
-        pygame.mixer.music.load(songs[i])
-        pygame.mixer.music.play()
+        pg.mixer.music.load(songs[i])
+        pg.mixer.music.play()
     elif s == 'pr':
         i -= 1
-        pygame.mixer.music.load(songs[i])
-        pygame.mixer.music.play()
+        pg.mixer.music.load(songs[i])
+        pg.mixer.music.play()
     elif s == 'c':
-
         playing = False
 
 

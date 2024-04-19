@@ -61,10 +61,10 @@ def check(path):
 
     if os.path.exists(path):
         print("Path exists")
-        # Extract and print directory name
+
         directory_name = os.path.dirname(path)
         print(f"Directory: {directory_name}")
-        # Extract and print file name
+
         file_name = os.path.basename(path)
         print(f"Filename: {file_name}")
     else:

@@ -165,37 +165,37 @@ def myfunc():
 # ex1
 x = 5
 print(type(x))
-int
+# int
 
 # ex2
 x = "Hello World"
 print(type(x))
-str
+# str
 
 # ex3
 x = 20.5
 print(type(x))
-float
+# float
 
 # ex4
 x = ["apple", "banana", "cherry"]
 print(type(x))
-list
+# list
 
 # ex5
 x = ("apple", "banana", "cherry")
 print(type(x))
-tuple
+# tuple
 
 # ex6
 x = {"name": "John", "age": 36}
 print(type(x))
-dict
+# dict
 
 # ex7
 x = True
 print(type(x))
-bool
+# bool
 
 # Python numbers
 
@@ -285,7 +285,7 @@ txt = "Hello World"
 x = txt[0]
 
 # ex3
-txt = "Hello World"
+txt = "Hello World" # 5 Not included
 x = txt[2:5]
 
 # ex4

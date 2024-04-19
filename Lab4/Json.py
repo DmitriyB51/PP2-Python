@@ -809,10 +809,20 @@ interface_data = [
         "MTU": item["l1PhysIf"]["attributes"]["mtu"]
     } for item in data["imdata"]
 ]
+answer = ""
+for item in data["imdata"]:
+    dn = item["l1PhysIf"]["attributes"]["dn"]
+    descr = item["l1PhysIf"]["attributes"]["descr"]
+    speed = item["l1PhysIf"]["attributes"]["speed"]
+    mtu = item["l1PhysIf"]["attributes"]["mtu"]
+
+    answer += f"\n{dn:<50} {descr:<20} {speed:<10} {mtu}"
 
 
-output = "Interface Status\n" + "="*80 + "\nDN                                                 Description           Speed    MTU  \n" + "-"*80
+
+print("Interface Status\n" + "="*90 + "\nDN                                                 Description           Speed      MTU  \n" + "-"*90)
+print(answer)
+a = ""
 for interface in interface_data:
-    output += f"\n{interface['DN']:<50} {interface['Description']:<20} {interface['Speed']:<6} {interface['MTU']}"
+    a += f"\n{interface['DN']:<50} {interface['Description']:<20} {interface['Speed']:<10} {interface['MTU']:}"
 
-print(output)

@@ -33,7 +33,6 @@ def pal(s):
     r = a-1
     t = True
     while l<r:
-
         if(s[l] != s[r]):
             t = False
             print("Not Palindrome")

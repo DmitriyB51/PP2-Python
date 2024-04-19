@@ -1,4 +1,7 @@
+import random
 # Task 1
+
+
 def in_ounces(n):
     return n / 28.3495231
 
@@ -181,7 +184,7 @@ def histogram(a):
 # histogram([4, 9, 7])
 
 # Task 13
-import random
+
 
 
 def guess_the_number():

@@ -7,7 +7,7 @@ class strings:
         self.string = input("Enter a string: ")
 
     def printString(self):
-        print(self.string)
+        print(self.string.upper())
 
 
 """
@@ -15,6 +15,8 @@ a = strings()
 a.getString()
 a.printString()
 """
+
+
 
 
 #  Task 2 && 3
@@ -129,5 +131,5 @@ def is_prime(n):
     return True
 
 
-x = list(filter(lambda n: is_prime(n), numbers))
+# x = list(filter(lambda n: is_prime(n), numbers))
 # print(x)
