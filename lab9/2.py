@@ -1,5 +1,6 @@
 import pygame
-from random import randint
+from random import randint, choice
+import time
 
 pygame.init()
 
@@ -76,9 +77,17 @@ class Snake:
 class Food:
     def __init__(self):
         self.pos = Point.generate()
+        # food will disappear after 5 seconds
+        self.timer = time.time() + 5
+        # diff colors represents diff weights
+        self.weights = [colorGREEN, colorBLUE, colorGRAY]
+        self.final_color = colorGREEN
+        self.current_color = None
 
     def draw(self):
-        pygame.draw.rect(screen, colorGREEN, (self.pos.x, self.pos.y, CELL, CELL))
+        time_left = max(0, self.timer - time.time())
+        pygame.draw.rect(screen, self.final_color, (self.pos.x, self.pos.y, CELL, CELL))
+
 
     # check if place for food is valid
     def regenerate(self):
@@ -92,6 +101,11 @@ class Food:
                     break
             if valid_pos:
                 self.pos = new_pos
+                self.timer = time.time() + 5
+                self.final_color = choice(self.weights)
+                self.weights = [colorGREEN, colorBLUE, colorGRAY]
+
+
 
 
 
@@ -128,13 +142,23 @@ while not done:
 
     snake.move()
     if snake.check_collision(food):
-        food.regenerate()
-        score += 1
+
+        if food.final_color == colorGREEN:
+            score += 1
+        elif food.final_color == colorBLUE:
+            score += 2
+        else:
+            score += 3
         # level increases every 3 foods
         if score % 3 == 0:
             level += 1
             # score increases every level
             FPS += 1
+        food.regenerate()
+    # Check if the food has disappeared
+    if time.time() >= food.timer:
+        food.regenerate()
+
 
     snake.draw()
     food.draw()
