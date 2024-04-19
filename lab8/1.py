@@ -180,7 +180,7 @@ while True:
         time.sleep(2)
         pygame.quit()
         sys.exit()
-
+        # asd
     pygame.display.update()
     FPS.tick(240)
 
